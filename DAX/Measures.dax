@@ -1,0 +1,42 @@
+// Exact explicit measure expressions extracted from the supplied PBIX.
+// Home table: Measure's Table. Each definition is a separate measure.
+// This is documentation, not a single DAX query.
+
+// Measure: Current week revenue
+Current week revenue =
+CALCULATE(
+    SUM(credit_card[Revenue]),
+    FILTER(ALL(credit_card),
+    credit_card[Week_num 2]=MAX(credit_card[Week_num 2])))
+
+// Measure: Previous week revenue
+Previous week revenue =
+CALCULATE(
+    SUM(credit_card[Revenue]),
+    FILTER(ALL(credit_card),
+    credit_card[Week_num 2]=MAX(credit_card[Week_num 2])-1))
+
+// Measure: Next week revenue
+Next week revenue =
+CALCULATE(
+    SUM(credit_card[Revenue]),
+    FILTER(ALL(credit_card),
+    credit_card[Week_num 2]=MAX(credit_card[Week_num 2])+1))
+
+// Measure: WOW Change %
+WOW Change % =
+DIVIDE([Current week revenue]-[Previous week revenue],[Previous week revenue],"NA")
+
+// Measure: Total customer
+Total customer =
+DISTINCTCOUNT(customer[Client_Num])
+
+// Measure: Delinquency rate
+Delinquency rate =
+DIVIDE(
+      CALCULATE(
+                DISTINCTCOUNT(customer[Client_Num]),
+    credit_card[Delinquent_Acc]=1),
+    DISTINCTCOUNT(customer[Client_Num])
+
+    )

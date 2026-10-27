@@ -1,0 +1,17 @@
+# Power BI local state (PBIP) and temporary files
+.pbi/
+**/.pbi/
+*.pbix~
+*.pbit~
+~$*
+*.tmp
+*.bak
+# Editor / OS files
+.vscode/
+.DS_Store
+Thumbs.db
+# Local credentials or private source copies
+.env
+.env.*
+secrets.*
+Data/private/

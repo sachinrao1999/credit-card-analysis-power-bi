@@ -1,0 +1,28 @@
+// Exact business calculated-column expressions from the supplied PBIX.
+// Add each separately in its named table; not a single DAX query.
+
+// Table: customer
+AgeGroup =
+SWITCH(TRUE(),
+customer[Customer_Age]<30,"20-30",
+customer[Customer_Age]>=30 && customer[Customer_Age]<40,"30-40",
+customer[Customer_Age]>=40 && customer[Customer_Age]<50,"40-50",
+customer[Customer_Age]>=50 && customer[Customer_Age]<60,"50-60",
+customer[Customer_Age]>=60,"60+",
+"Unknown")
+
+// Table: customer
+Income Group =
+SWITCH(TRUE(),
+customer[Income]<35000,"Low",
+customer[Income]>=35000 && customer[Income]<70000,"Med",
+customer[Income]>=70000,"High",
+"Unknown")
+
+// Table: credit_card
+Revenue =
+credit_card[Annual_Fees]+credit_card[Total_Trans_Amt]+credit_card[Interest_Earned]
+
+// Table: credit_card
+Week_num 2 =
+WEEKNUM(credit_card[Corrected date's].[Date])
