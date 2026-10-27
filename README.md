@@ -129,25 +129,3 @@ This project helped me practise connecting related tables, preparing dates, buil
 
 ## Explore the report
 
-1. Download [Credit_Card_Report.pbix](Report/Credit_Card_Report.pbix).
-2. Open it in a compatible version of Power BI Desktop.
-3. Use the slicers to explore different card and customer segments.
-4. Move between the transaction and customer pages using the navigation buttons.
-
-The PBIX contains the imported data. The original `credit_card.csv` and `customer.csv` files are not included in this repository. Refreshing from source requires those files and an update to their local paths in Power Query.
-
-## Project files
-
-| Folder | Contents |
-|---|---|
-| `Report/` | Power BI report |
-| `Screenshots/` | Transaction and customer dashboard screenshots |
-| `DAX/` | Measures and calculated-column definitions |
-| `docs/` | Data dictionary, metric definitions, preparation steps, model details and validation checks |
-| `Data/` | Source-file and refresh information |
-
-For more detail, see the [data dictionary](docs/Data_Dictionary.md), [metric definitions](docs/Metric_Definitions.md) and [refresh instructions](docs/Model_and_Refresh.md).
-
-## What I would improve next
-
-I would add a dedicated calendar table and make the weekly comparisons work reliably across year boundaries. I would also compare revenue per customer with total revenue, so segment size and individual customer contribution can be assessed separately.
